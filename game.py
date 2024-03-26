@@ -5,6 +5,9 @@ from gameparts.exceptions import CellOccupiedError, FieldIndexError
 
 
 def main():
+    """
+    Main function that runs the game and manages player moves and game state.
+    """
     game = Board()
     current_player = 'X'
     running = True
