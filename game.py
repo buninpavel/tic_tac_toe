@@ -25,29 +25,25 @@ screen.fill(BG_COLOR)
 
 # Функция, которая отвечает за отрисовку горизонтальных и вертикальных линий.
 def draw_lines():
-    # Горизонтальные линии.
-    for i in range(1, BOARD_SIZE):
+    """Draw the game grid."""
+    for row in range(BOARD_SIZE):
         pygame.draw.line(
             screen,
             LINE_COLOR,
-            (0, i * CELL_SIZE),
-            (WIDTH, i * CELL_SIZE),
-            LINE_WIDTH
-        )
+            (0, row * CELL_SIZE),
+            (WIDTH, row * CELL_SIZE),
+            LINE_WIDTH)
 
-    # Вертикальные линии.
-    for i in range(1, BOARD_SIZE):
         pygame.draw.line(
             screen,
             LINE_COLOR,
-            (i * CELL_SIZE, 0),
-            (i * CELL_SIZE, HEIGHT),
-            LINE_WIDTH
-        )
+            (row * CELL_SIZE, 0),
+            (row * CELL_SIZE, HEIGHT),
+            LINE_WIDTH)
 
 
-# Функция, которая отвечает за отрисовку фигур 
-# (крестиков и ноликов) на доске. 
+# Функция, которая отвечает за отрисовку фигур
+# (крестиков и ноликов) на доске.
 def draw_figures(board):
     for row in range(BOARD_SIZE):
         for col in range(BOARD_SIZE):
@@ -88,9 +84,9 @@ def draw_figures(board):
                 )
 
 
-def save_result(text):
-    with open('results.txt', 'a') as f:
-        f.write(text + '\n')
+def save_result(text_to_save):
+    with open('results.txt', mode='a', encoding='utf-8') as file:
+        file.write(f'{text_to_save}\n')
 
 
 def main():
